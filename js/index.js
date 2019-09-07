@@ -1,22 +1,27 @@
 // Your code goes here
+//Stretch goal GSAP
+
+TweenMax.to(".intro h2", 3, {rotationX:360});
+TweenMax.from(".intro img", 3, {x:300, opacity:0, scale:0.5});
+// Stretch End
 
 //mouseover 
-const logo = document.querySelector(".logo-heading");
-logo.addEventListener("mouseover", (e) => {
+const logo1 = document.querySelector(".logo-heading");
+logo1.addEventListener("mouseover", (e) => {
   
  
-  logo.style.transform = 'scale(1.2)';
-  logo.style.color = 'red';
-  logo.style.transition = ' transform 0.5s';
+  logo1.style.transform = 'scale(1.2)';
+  logo1.style.color = 'red';
+  logo1.style.transition = ' transform 0.5s';
 });
 
 //mouseleave
-logo.addEventListener("mouseleave", (e) => {
+logo1.addEventListener("mouseleave", (e) => {
   
     
-    logo.style.transform = 'scale(1)';
-    logo.style.color = 'black';
-    logo.style.transition = ' transform 0.5s';
+    logo1.style.transform = 'scale(1)';
+    logo1.style.color = 'black';
+    logo1.style.transition = ' transform 0.5s';
   });
 
 //keydown 
@@ -160,3 +165,4 @@ navNode.forEach(item => {
         event.preventDefault();
       });
 });
+
