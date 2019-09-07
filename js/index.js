@@ -25,6 +25,7 @@ logo.addEventListener("mouseleave", (e) => {
     busImg = document.querySelector('.intro img');
     
     busImg.src = 'img/happytravel.jpg'
+    event.stopImmediatePropagation();
   });
 
 //keyup
@@ -110,19 +111,7 @@ window.addEventListener('resize', event => {
 
   });
 
-  // cut event
   
-
-  let paragraphNode = document.querySelector('.content-destination p');
-  
-  paragraphNode.addEventListener('cut', alertSelection);
-  
-  function alertSelection(event) {
-    
-
-    const selection = document.getSelection();
-     alert ('you cut the text:'+ selection);
-}
 
 
 //dblclick event
@@ -137,4 +126,37 @@ busImg.addEventListener('mouseleave', function (e) {
     busImg.src =  "img/fun-bus.jpg";
   });
 
-  //drag and drop
+// cut event for child and parent and stop propagation
+  
+
+let paragraphNode = document.querySelector('.content-destination p');
+  
+paragraphNode.addEventListener('cut', alertSelection);
+
+function alertSelection(event) {
+  
+
+  const selection = document.getSelection();
+   alert ('you cut the text:'+ selection);
+   event.stopPropagation();
+}
+  let pickDest = document.querySelector('.content-destination');
+  
+  pickDest.addEventListener('cut', alertSelection2);
+  
+  function alertSelection2(event) {
+    
+    
+    const selection = document.getSelection();
+     alert ('you cut:'+ selection);
+}
+
+//Stop the navigation from items from refreshing the page by using preventDefault()
+let navNode = document.querySelectorAll('.nav-link');
+
+navNode.forEach(item => {
+      item.addEventListener('click', event => {
+        console.log(item);
+        event.preventDefault();
+      });
+});
